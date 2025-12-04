@@ -56,29 +56,19 @@ async def voice_agent(ctx: agents.JobContext):
         ),
 
         # Text-to-speech
-       tts=inference.TTS(
-    model="cartesia/sonic-3",
-    voice="9626c31c-bec5-4cca-baa8-f8ba9e84c8bc",
-    language="en",
-)
-
+        tts=inference.TTS(
+            model="cartesia/sonic-3",
+            voice="9626c31c-bec5-4cca-baa8-f8ba9e84c8bc",
+            language="en",
+        ),
     )
 
-    # Start the agent in the LiveKit room
-    await session.start(
-        room=ctx.room,
-        agent=MyAssistant(),
-    )
-
-    # Optional: greet user once at start
-    await session.generate_reply(
-        instructions="Talk in english.Greet the user casually."
-    )
 
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8080))
     agents.cli.run_app(server)
+
 
 
 
