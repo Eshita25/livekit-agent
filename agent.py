@@ -1,3 +1,4 @@
+import os 
 from dotenv import load_dotenv
 
 from livekit import agents
@@ -76,4 +77,5 @@ async def voice_agent(ctx: agents.JobContext):
 
 
 if __name__ == "__main__":
-    agents.cli.run_app(server, host="0.0.0.0", port=8080)
+    port = int(os.environ.get("PORT", 8080))
+    agents.cli.run_app(server, host="0.0.0.0", port=port)
