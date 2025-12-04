@@ -9,7 +9,7 @@ from livekit.agents import inference
 
 # Load LIVEKIT_* and GROQ_API_KEY from .env
 load_dotenv(".env")
-
+port = int(os.getenv("PORT", "8000"))  
 
 class MyAssistant(Agent):
     def __init__(self) -> None:
@@ -79,5 +79,6 @@ async def voice_agent(ctx: agents.JobContext):
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8080))
     agents.cli.run_app(server)
+
 
 
