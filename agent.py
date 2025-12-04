@@ -78,5 +78,6 @@ async def voice_agent(ctx: agents.JobContext):
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8080))
-    agents.cli.run_app(server, port=port)
+    agents.cli.run_app(server)
+
 
